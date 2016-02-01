@@ -5,9 +5,18 @@
   <div class="container">
       <div class="row">
           <div class="col-md-4 col-md-offset-4 text-center">
+            <h1>Register</h1>
             <form role="form" method="POST" action="{{ url('/register') }}">
               {!! csrf_field() !!}
               <fieldset>
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                    <input class="form-control input-lg" placeholder="Full Name" name="name" type="text" autofocus value="{{ old('name') }}" required>
+                    @if ($errors->has('name'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
+                </div>
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <input class="form-control input-lg" placeholder="E-mail" name="email" type="email" autofocus value="{{ old('email') }}" required>
                     @if ($errors->has('email'))

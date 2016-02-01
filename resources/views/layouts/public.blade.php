@@ -32,7 +32,41 @@
 
 <body>
 
-
+  <header class="navbar navbar-inverse" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="./" class="navbar-brand"><em class="fa fa-cloud text-primary"></em> {{ trans('app.name') }}</a>
+      </div>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="{{ url('/') }}">Home</a>
+          </li>
+          @if(!Auth::check())
+            <li @if(Request::is('register'))class="active"@endif>
+              <a href="{{ url('register') }}">Register</a>
+            </li>
+            <li @if(Request::is('login'))class="active"@endif>
+              <a href="{{ url('login') }}">Login</a>
+            </li>
+          @else
+            <li @if(Request::is('home'))class="active"@endif>
+              <a href="{{ url('home') }}">Dashboard</a>
+            </li>
+            <li>
+              <a href="{{ url('logout') }}">Log out</a>
+            </li>
+          @endif
+        </ul>
+      </nav>
+    </div>
+  </header>
 
     @yield('content')
 

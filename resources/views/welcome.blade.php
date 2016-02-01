@@ -164,7 +164,4 @@
     </aside>
 
 
-</body>
-
-</html>
 @endsection

@@ -28,14 +28,16 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::get('/', function () {
         return view('welcome');
     });
+    Route::get('/dashboard', 'Client\DashboardController@index');
+});
 
+Route::group(['middleware' => ['web','admin']], function () {
     Route::get('/admin', function () {
         return view('admin.welcome');
     });
-    Route::get('/home', 'HomeController@index');
 });

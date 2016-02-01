@@ -48,7 +48,12 @@
           <li>
             <a href="{{ url('/') }}">Home</a>
           </li>
-          @if(!Auth::check())
+
+
+ 
+
+
+          @if(Auth::guest())
             <li @if(Request::is('register'))class="active"@endif>
               <a href="{{ url('register') }}">Register</a>
             </li>
@@ -56,18 +61,33 @@
               <a href="{{ url('login') }}">Login</a>
             </li>
           @else
-            <li @if(Request::is('home'))class="active"@endif>
-              <a href="{{ url('home') }}">Dashboard</a>
-            </li>
-            <li>
-              <a href="{{ url('logout') }}">Log out</a>
-            </li>
+   
+
+            @role('admin')
+              <li @if(Request::is('admin*'))class="active"@endif>
+                <a href="{{ url('admin') }}">Admin Dashboard</a>
+              </li>
+            @else
+              <li @if(Request::is('dashboard*'))class="active"@endif>
+                <a href="{{ url('dashboard') }}">Dashboard</a>
+              </li>
+            @endrole
+
+             <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                      <em class="fa fa-user"></em> <span class="caret"></span>
+                  </a>
+
+                  <ul class="dropdown-menu" role="menu">
+                      <li><a href="{{ url('/') }}">Logged in: {{ Auth::user()->name }}</li>
+                      <li><a href="{{ url('/logout') }}">Log out</a></li>
+                  </ul>
+              </li>
           @endif
         </ul>
       </nav>
     </div>
   </header>
-
     @yield('content')
 
     <!-- Footer -->

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ProfileController extends \App\Http\Controllers\Controller
 {
     /**
      * Create a new controller instance.
@@ -24,6 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('client.dashboard.index');
     }
 }

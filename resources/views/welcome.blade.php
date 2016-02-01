@@ -8,7 +8,9 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>BillCP &mdash; A Laravel 5 Based Billing Control Panel</h2>
-                    <p class="lead">Free, open source, bootstrap, jquery, fontawesome &amp; laravel.</p>
+                    <p class="lead">Free, open source, bootstrap, jquery, fontawesome &amp; laravel based.</p>
+
+                    <a href="{{ url('/login') }}" class="btn btn-primary btn-lg">Log-in</a> &nbsp; or &nbsp; <a href="{{ url('/register') }}"  class="btn btn-success btn-lg">Register</a>
                 </div>
             </div>
             <!-- /.row -->

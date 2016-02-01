@@ -32,10 +32,10 @@ body {
 /* Custom Button Styles */
 
 .btn-dark {
-    border-radius: 0;
     color: #fff;
     background-color: rgba(0,0,0,0.4);
 }
+
 
 .btn-dark:hover,
 .btn-dark:focus,
@@ -45,7 +45,6 @@ body {
 }
 
 .btn-light {
-    border-radius: 0;
     color: #333;
     background-color: rgb(255,255,255);
 }
@@ -163,10 +162,9 @@ hr.small {
     color:#fff
 }
 
-/* About */
 
-.about {
-    padding: 50px 0;
+.page {
+    padding: 30px 0;
 }
 
 /* Services */
@@ -178,7 +176,9 @@ hr.small {
 .service-item {
     margin-bottom: 30px;
 }
-
+.about {
+    padding: 50px 0;
+}
 /* Callout */
 
 .callout {
@@ -237,5 +237,5 @@ hr.small {
 /* Footer */
 
 footer {
-    padding: 100px 0;
+    padding: 3px 0;
 }
